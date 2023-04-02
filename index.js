@@ -20,39 +20,39 @@ form.addEventListener("submit", function (event) {
   const errors = [];
 
   if (firstName.length < 2 || firstName.length > 25) {
-    errors.push("Имя должно содержать от 2 до 25 символов");
+    errors.push("Name must be between 2 and 25 characters");
   }
 
   if (lastName.length < 2 || lastName.length > 25) {
-    errors.push("Фамилия должна содержать от 2 до 25 символов");
+    errors.push("Surname must be between 2 and 25 characters");
   }
 
   if (birthdate >= new Date()) {
-    errors.push("Дата рождения не может быть в будущем");
+    errors.push("Date of birth cannot be in the future");
   }
 
   if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
-    errors.push("Введите валидный адрес электронной почты");
+    errors.push("Please enter a valid email address");
   }
 
   if (password.length < 8) {
-    errors.push("Пароль должен содержать не менее 8 символов");
+    errors.push("Password must contain at least 8 characters");
   }
 
   if (!password.match(/[A-Z]/)) {
-    errors.push("Пароль должен содержать хотя бы 1 символ в верхнем регистре");
+    errors.push("Password must contain at least 1 uppercase character");
   }
 
   if (!password.match(/[1-9]/)) {
-    errors.push("Пароль должен содержать хотя бы 1 цифру");
+    errors.push("Password must contain at least 1 number");
   }
 
   if (!password.match(/[!@#\$%\^&]/)) {
-    errors.push("Пароль должен содержать 1 специальный символ (!@#$%).");
+    errors.push("The password must contain 1 special character (!@#$%)");
   }
 
   if (passwordInput.value !== confirmPasswordInput.value) {
-    errors.push("Пароль и подтверждение пароля должны совпадать.");
+    errors.push("Password and password confirmation must match");
   }
 
   if (errors.length > 0) {
@@ -92,6 +92,6 @@ form.addEventListener("submit", function (event) {
         );
       }
     }
-    alert(`Ошибка валидации:\n${errorMessages.join("\n")}`);
+    alert(`Validation error:\n${errorMessages.join("\n")}`);
   }
 });
