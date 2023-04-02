@@ -59,39 +59,40 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
     const errorMessage = errors.join("\n");
     alert(errorMessage);
-  }
-  if (form.checkValidity()) {
-    const userData = {
-      firstName: form.elements["first-name"].value,
-      lastName: form.elements["last-name"].value,
-      birthdate: form.elements["birthdate"].value,
-      email: form.elements["email"].value,
-      password: form.elements["password"].value,
-    };
-    fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "POST",
-      body: JSON.stringify(userData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        form.reset();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   } else {
-    const errorMessages = [];
-    for (let i = 0; i < form.elements.length; i++) {
-      if (!form.elements[i].checkValidity()) {
-        errorMessages.push(
-          `${form.elements[i].name}: ${form.elements[i].validationMessage}`
-        );
+    if (form.checkValidity()) {
+      const userData = {
+        firstName: form.elements["first-name"].value,
+        lastName: form.elements["last-name"].value,
+        birthdate: form.elements["birthdate"].value,
+        email: form.elements["email"].value,
+        password: form.elements["password"].value,
+      };
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          form.reset();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      const errorMessages = [];
+      for (let i = 0; i < form.elements.length; i++) {
+        if (!form.elements[i].checkValidity()) {
+          errorMessages.push(
+            `${form.elements[i].name}: ${form.elements[i].validationMessage}`
+          );
+        }
       }
+      alert(`Validation error:\n${errorMessages.join("\n")}`);
     }
-    alert(`Validation error:\n${errorMessages.join("\n")}`);
   }
 });
