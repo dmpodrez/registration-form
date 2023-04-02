@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration form</title>
+  </head>
+  <body>
+    <form>
+      <label class="first-name" for="first-name">Имя:</label>
+      <input
+        type="text"
+        id="first-name"
+        name="first-name"
+        minlength="2"
+        maxlength="25"
+        required
+      />
+
+      <label class="last-name" for="last-name">Фамилия:</label>
+      <input
+        type="text"
+        id="last-name"
+        name="last-name"
+        minlength="2"
+        maxlength="25"
+        required
+      />
+
+      <label class="birthdate" for="birthdate">Дата рождения:</label>
+      <input
+        type="date"
+        id="birthdate"
+        name="birthdate"
+        max="2023-04-01"
+        required
+      />
+
+      <label class="email" for="email">Электронная почта:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label class="password" for="password">Пароль:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        minlength="8"
+        required
+      />
+
+      <label class="confirm-password" for="confirm-password"
+        >Подтверждение пароля:</label
+      >
+      <input
+        type="password"
+        id="confirm-password"
+        name="confirm-password"
+        required
+      />
+      <div class="button-area">
+        <button class="submit" type="submit">Зарегистрироваться</button>
+      </div>
+    </form>
+
+    <div id="error-messages"></div>
+  </body>
+  <script src="index.js"></script>
+</html>
