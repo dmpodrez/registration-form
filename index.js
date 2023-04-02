@@ -60,11 +60,11 @@ form.addEventListener("submit", function (event) {
     const errorMessage = errors.join("\n");
     alert(errorMessage);
   } else {
-    CheckValidaty();
+    CheckValidation();
   }
 });
 
-function CheckValiditation() {
+function CheckValidation() {
   if (form.checkValidity()) {
     const userData = {
       firstName: form.elements["first-name"].value,
